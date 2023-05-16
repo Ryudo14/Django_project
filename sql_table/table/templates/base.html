@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>Table</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>VIEW</th>
+    <th>LIVE</th>
+    <th>AGE</th>
+  </tr>
+    {% for table in all_table_list %}
+
+  <tr>
+    <td>{{ table.id }}</td>
+    <td>{{ table.name }}</td>
+    <td>{{ table.view }}</td>
+    <td>{{ table.live }}</td>
+    <td>{{ table.age }}</td>
+{% endfor %}
+
+{% block content %}
+{% endblock content %}
+</body>
+</html>
