@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} List of Zoo {% endblock title %}
+
+{% block content %}
+    <h1>Zoo</h1>
+    {% for zoo in object_list %}
+    <p>Title: {{ zoo.title }}</p>
+    <p>Body: {{ zoo.body }}</p>
+{% endfor %}
+{% endblock content %}
