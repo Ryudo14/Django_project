@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Delete Comment {% endblock title %}
+
+{% block content %}
+    {% if user.id == author.id %}
+        <form action="" method="post">
+            <input type="hidden" value="{{id}}" name="comment" >
+            <input type="submit" value="Confirm">
+        </form>
+    {% endif %}
+{% endblock content %}
+

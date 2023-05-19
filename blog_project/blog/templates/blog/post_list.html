@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Post {% endblock title %}
+
+{% block content %}
+    {% for post in object_list %}
+            <div>
+                {{ post.title }}
+                {{ post.author }}
+                {{ post.date }}
+            </div>
+            <div>
+                {{ post.body }}
+
+
+            </div>
+            <div>
+                <a href="{% url 'post_edit' post.pk %}">Edit</a>
+                <a href="{% url 'post_delete' post.pk %}">Delete</a>
+                <a href="{% url 'comment_delete'  post.pk %}">Delete the comment</a>
+            </div>
+
+            <div>
+                    {% for comment in article.comments.all %}
+                    <p>
+                        {{ comment.author }}
+                        {{ comment }}
+                    </p>
+                    {% endfor %}
+            </div>
+            <br>
+    {% endfor %}
+{% endblock content %}
