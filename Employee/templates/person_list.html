@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for person in object_list  %}
+        <div>
+            {{ person.name }}
+            {{ person.salary }}
+            {{ person.post }}
+        </div>
+        {% if person.cover %}
+            <img src="{{ person.cover.url }}" alt="{{ person.title }}" style="max-height:100px">
+        {% endif %}
+        <h2>{{person.title}}</h2>
+        <br>
+    {% endfor %}
+{% endblock content %}
