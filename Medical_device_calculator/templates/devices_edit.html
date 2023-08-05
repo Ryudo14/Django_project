@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Change {% endblock title %}
+
+{% block content %}
+    <h1>Edit</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = 'submit'>Update</button>
+    </form>
+{% endblock content %}

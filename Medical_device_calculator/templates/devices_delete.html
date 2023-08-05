@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete {% endblock title %}
+
+{% block content %}
+    <h1>Delete</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>You are deleting {{ devices.name }}</p>
+        <button type="submit">Confirm deletion</button>
+    </form>
+{% endblock content %}

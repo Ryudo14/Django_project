@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header>
+    <h1>Homepage</h1>
+    {% if user.is_authenticated %}
+    <div class="dropdown text">
+        <h2>You Log in {{ user.username }}</h2>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="{% url 'password_change'%}">
+                Change password</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+            </li>
+        </ul>
+    </div>
+    {% else %}
+    <div class="text">
+        <button><a href="{% url 'login' %}" class="btn login">Log In</a></button>
+        <button><a href="{% url 'signup' %}" class="btn signup">Sign Up</a></button>
+    </div>
+
+    <div class="search">
+        <form action="{% url 'search_results' %}" method="get">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input name="q" type="text" placeholder="Search...">
+        </form>
+        <form action="{% url 'devices_list' %}" method="get">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{% url 'devices_list' %}">All Devices</a>
+        </form>
+    </div>
+    {% endif %}
+</header>
+
+<div class="calculator">
+    <form method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        Enter a number : <input type="text" name="num1">
+        <br>
+        Enter a number : <input type="text" name="num2">
+        <button type="submit" name="submit" class="btn">Submit</button>
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <h3>Result</h3>
+            <h4>{{ calculator.result }}</h4>
+        </div>
+    </form>
+</div>
+<br>
+
+
+{% endblock content %}

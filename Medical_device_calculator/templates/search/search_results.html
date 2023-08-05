@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Search Results</h1>
+    <ul>
+        {% for devices in object_list %}
+            <li>
+                <p>Наиминование: {{ devices.name }}, Серия: {{ devices.batch }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Devices {% endblock title %}
+
+{% block content %}
+    {% for devices in object_list %}
+            <div>
+                <h4>{{ devices.name }}</h4>
+                {{ devices.batch }}
+                <br>
+                {{ devices.date }}
+                {{ devices.quantity_in_pack }}
+                {{ devices.quantity_thing }}
+                {{ devices.packing_price }}
+                {{ price_for_one }}
+            </div>
+            <div>
+                {{ devices.body }}
+
+
+            </div>
+            <div>
+                <a href="{% url 'devices_edit' devices.pk %}">Edit</a>
+                <a href="{% url 'devices_delete' devices.pk %}">Delete</a>
+                <a href="{% url 'devices_new' %}">Add</a>
+            </div>
+
+    {% endfor %}
+{% endblock content %}

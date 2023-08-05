@@ -1,0 +1,16 @@
+
+<form method=post action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+        </form>
+        <h2>Калькулятор медицинских изделий</h2>
+
+
+        <table aria-describedby="Table">
+            {% for item in query_results %}
+            <tr>
+                <th>{{ calculator.name }}</th>
+            </tr>
+            {% endfor %}
+        </table>
